@@ -96,6 +96,11 @@
     <ClInclude Include="..\src\stats.h" />
     <ClInclude Include="..\src\timer.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\COPYRIGHT" />
+    <None Include="..\makefile" />
+    <None Include="..\README" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -66,4 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\COPYRIGHT" />
+    <None Include="..\makefile" />
+    <None Include="..\README" />
+  </ItemGroup>
 </Project>
