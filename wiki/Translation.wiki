@@ -8,6 +8,7 @@ Here's a list of the strings used by paping in English, if you can translate the
 = Details =
 
 *STRING_STATS:*
+
 _Value_:
 {{{
 "\n"
@@ -25,30 +26,35 @@ Approximate connection times:
 }}}
 
 *ERROR_POUTOFMEMORY:*
+
 _Value_:
 {{{
 "Out of memory"
 }}}
 
 *ERROR_SOCKET_TIMEOUT:*
+
 _Value_:
 {{{
 "Connection timed out"
 }}}
 
 *ERROR_SOCKET_GENERALFAILURE:*
+
 _Value_:
 {{{
 "General failure"
 }}}
 
 *ERROR_SOCKET_CANNOTRESOLVE:*
+
 _Value_:
 {{{
 "Cannot resolve host"
 }}}
 
 *STRING_CONNECT_INFO_FULL:*
+
 _Value_:
 {{{
 "Connecting to %s [%s] on %s %d:"
@@ -59,6 +65,7 @@ Connecting to www.l.google.com [72.14.234.104] on TCP 80:
 }}}
 
 *STRING_CONNECT_INFO_IP:*
+
 _Value_:
 {{{
 "Connecting to %s on %s %d:"
@@ -69,6 +76,7 @@ Connecting to 192.168.0.1 on TCP 80:
 }}}
 
 *STRING_CONNECT_SUCCESS:*
+
 _Value_:
 {{{
 "Connected to %s: time=%.2fms protocol=%s port=%d"
