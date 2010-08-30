@@ -1,0 +1,36 @@
+#summary Translation Strings
+
+= Introduction =
+
+Here's a list of the strings used by paping in English, if you can translate them to a different language and help paping be more 'international' please help!
+
+
+= Details =
+
+*STRING_STATS:*
+"\n"
+"Connection statistics:\n"
+"\tAttempted = %d, Connected = %d, Failed = %d (%.2f%%)\n"
+"Approximate connection times:\n"
+"\tMinimum = %.2fms, Maximum = %.2fms, Average = %.2fms\n"
+
+*ERROR_POUTOFMEMORY:*
+"Out of memory"
+
+*ERROR_SOCKET_TIMEOUT:*
+"Connection timed out"
+
+*ERROR_SOCKET_GENERALFAILURE:*
+"General failure"
+
+*ERROR_SOCKET_CANNOTRESOLVE:*
+"Cannot resolve host"
+
+*STRING_CONNECT_INFO_FULL:*
+"Connecting to %s [%s] on %s %d:"
+
+*STRING_CONNECT_INFO_IP:*
+"Connecting to %s on %s %d:"
+
+*STRING_CONNECT_SUCCESS:*
+"Connected to %s: time=%.2fms protocol=%s port=%d"
