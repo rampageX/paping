@@ -28,6 +28,7 @@ int	arguments_c::Process(int argc, pc_t argv[], arguments_c &arguments)
 	arguments.Timeout	= 1000;
 	arguments.Type		= IPPROTO_TCP;
 	arguments.Continous	= true;
+	arguments.UseColor	= true;
 
 	for (int i=1; i<argc; i++)
 	{
@@ -43,13 +44,9 @@ int	arguments_c::Process(int argc, pc_t argv[], arguments_c &arguments)
 			continue;
 		}
 
-		/* Not easy to implement!
-		if (result = arguments_c::match(i, argc, argv, NULL, "--tcp", false, value, anyMatch) != SUCCESS) return result;
-		if (value == 1) arguments.Type = IPPROTO_TCP;
+		if (result = arguments_c::match(i, argc, argv, NULL, "--nocolor", false, value, anyMatch) != SUCCESS) return result;
+		if (value == 1) arguments.UseColor = false;
 
-		if (result = arguments_c::match(i, argc, argv, NULL, "--udp", false, value, anyMatch) != SUCCESS) return result;
-		if (value == 1) arguments.Type = IPPROTO_UDP;
-		*/
 
 		if (!anyMatch)
 		{

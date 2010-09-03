@@ -10,6 +10,7 @@ class arguments_c
 		int		Timeout;
 		int		Count;
 		bool	Continous;
+		bool	UseColor;
 
 		static	void	PrintBanner();
 		static	void	PrintUsage();

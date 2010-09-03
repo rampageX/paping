@@ -12,7 +12,9 @@ int printStats();
 void signalHandler(int id);
 
 
+bool	useColor	= false;
 stats_c	stats;
+
 
 
 int main(int argc, pc_t argv[])
@@ -20,6 +22,7 @@ int main(int argc, pc_t argv[])
 	host_c		host;
 	int			result;
 	arguments_c	arguments;
+
 
 	stats.Attempts	= 0;
 	stats.Connects	= 0;
@@ -37,6 +40,8 @@ int main(int argc, pc_t argv[])
 		arguments_c::PrintUsage();
 		return ERROR_INVALIDARGUMENTS;
 	}
+
+	useColor = arguments.UseColor;
 
 	result = socket_c::Resolve(arguments.Destination, host);
 
@@ -93,9 +98,9 @@ int main(int argc, pc_t argv[])
 		}
 
 		#ifdef WIN32	// Windows cannot sleep to that accuracy (I think!)
-			if ((int)time < arguments.Timeout) Sleep((arguments.Timeout - (int)time));
+			if ((int)time < 1000) Sleep((1000 - (int)time));
 		#else
-			if ((int)time < arguments.Timeout) usleep((arguments.Timeout - (int)time) * 1000);
+			if ((int)time < 1000) usleep((1000 - (int)time) * 1000);
 		#endif
 
 		i++;
@@ -122,7 +127,12 @@ void signalHandler(int id)
 
 void printError(int error)
 {
-	cerr << "ERROR: " << i18n_c::GetString(error) << " (" << error << ")" << endl;
+	if (useColor)
+		print_c::FormattedPrint(PRINT_COLOR_RED, i18n_c::GetString(error));
+	else
+		print_c::FormattedPrint(NULL, i18n_c::GetString(error));
+
+	cout << endl;
 }
 
 
@@ -142,7 +152,12 @@ int printConnectInfo(host_c host)
 
 	host.GetConnectInfoString(info);
 
-	cout << info << endl << endl;
+	if (useColor)
+		print_c::FormattedPrint(PRINT_COLOR_YELLOW, info);
+	else
+		print_c::FormattedPrint(NULL, info);
+
+	cout << endl << endl;
 
 	delete[] info;
 
@@ -166,7 +181,12 @@ int printSuccessfulConnection(host_c host, double time)
 
 	host.GetSuccessfulConnectionString(data, time);
 
-	cout << data << endl;
+	if (useColor)
+		print_c::FormattedPrint(PRINT_COLOR_GREEN, data);
+	else
+		print_c::FormattedPrint(NULL, data);
+
+	cout << endl;
 
 	delete[] data;
 
@@ -190,7 +210,12 @@ int printStats()
 
 	stats.GetStatisticsString(str);
 
-	cout << str << endl;
+	if (useColor)
+		print_c::FormattedPrint(PRINT_COLOR_BLUE, str);
+	else
+		print_c::FormattedPrint(NULL, str);
+
+	cout << endl;
 
 	delete[] str;
 
@@ -200,7 +225,12 @@ int printStats()
 
 int printFailedConnection(int error)
 {
-	cout << i18n_c::GetString(error) << endl;
+	if (useColor)
+		print_c::FormattedPrint(PRINT_COLOR_RED, i18n_c::GetString(error));
+	else
+		print_c::FormattedPrint(NULL, i18n_c::GetString(error));
+
+	cout << endl;
 
 	return SUCCESS;
 }
