@@ -39,6 +39,9 @@
     <ClCompile Include="..\src\gettimeofday.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\print.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\arguments.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\gettimeofday.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\print.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

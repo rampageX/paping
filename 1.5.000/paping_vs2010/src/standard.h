@@ -6,7 +6,7 @@
 	#pragma comment(lib, "ws2_32.lib")
 #endif
 
-#define	VERSION	"1.5.000"
+#define	VERSION	"1.5.1"
 #define	AUTHOR	"Mike Lovell"
 #define YEAR	((((__DATE__ [7] - '0') * 10 + (__DATE__ [8] - '0')) * 10 + (__DATE__ [9] - '0')) * 10 + (__DATE__ [10] - '0'))
 
@@ -23,13 +23,14 @@
 #define	ERROR_SOCKET_GENERALFAILURE	103
 #define	ERROR_INVALIDARGUMENTS		200
 
+
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
 #include <signal.h>
 
-#ifdef WIN32	// Windows specific
 
+#ifdef WIN32	// Windows specific
 	#include <Windows.h>
 	#include <WinSock2.h>
 	#include <time.h>
@@ -54,6 +55,7 @@ typedef				wchar_t*	pwc_t;
 typedef				char*		pc_t;
 typedef	unsigned	short		ushort_t;
 
+#include "print.h"
 #include "i18n.h"
 #include "stats.h"
 #include "timer.h"
