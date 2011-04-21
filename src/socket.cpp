@@ -113,7 +113,7 @@ int socket_c::Connect(host_c host, int timeout, double &time)
 	FD_SET(clientSocket, &read);
 	FD_SET(clientSocket, &write);
 	
-	result = select(clientSocket + 1, &read, &write, NULL, &tv)
+	result = select(clientSocket + 1, &read, &write, NULL, &tv);
 	
 	if (result != 1)
 	{
