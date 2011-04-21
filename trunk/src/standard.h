@@ -28,7 +28,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <signal.h>
-
+#include <stdio.h>
 
 #ifdef WIN32	// Windows specific
 	#include <Windows.h>

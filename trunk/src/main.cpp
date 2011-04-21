@@ -13,6 +13,7 @@ void signalHandler(int id);
 
 
 bool	useColor	= false;
+int		exitCode	= 0;
 stats_c	stats;
 
 
@@ -92,6 +93,7 @@ int main(int argc, pc_t argv[])
 		}
 		else
 		{
+			exitCode = 1;
 			stats.Failures++;
 
 			printFailedConnection(result);
@@ -109,7 +111,7 @@ int main(int argc, pc_t argv[])
 
 	printStats();	
 
-	return SUCCESS;
+	return exitCode;
 }
 
 
@@ -119,7 +121,7 @@ void signalHandler(int id)
 	{
 		case SIGINT:
 			printStats();
-			exit(0);
+			exit(exitCode);
 			return;
 	}
 }
