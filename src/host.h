@@ -5,6 +5,7 @@ class host_c
 	public:
 		pcc_t	Hostname;
 		in_addr	IPAddress;
+		unsigned int Source;
 		bool	HostIsIP;
 		int		Port;
 		int		Type;

@@ -6,6 +6,7 @@ class arguments_c
 	public:
 		pcc_t	Destination;
 		int		Port;
+		int Source;
 		int		Type;
 		int		Timeout;
 		int		Count;

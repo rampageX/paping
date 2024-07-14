@@ -24,6 +24,7 @@ int	arguments_c::Process(int argc, pc_t argv[], arguments_c &arguments)
 	bool	gotDestination	= false;
 
 	arguments.Port		= 0;
+	arguments.Source	= 0;
 	arguments.Count		= 0;
 	arguments.Timeout	= 1000;
 	arguments.Type		= IPPROTO_TCP;
@@ -37,6 +38,7 @@ int	arguments_c::Process(int argc, pc_t argv[], arguments_c &arguments)
 		if (result = arguments_c::match(i, argc, argv, "-p", "--port", true, arguments.Port, anyMatch) != SUCCESS) return result;
 		if (result = arguments_c::match(i, argc, argv, "-c", "--count", true, arguments.Count, anyMatch) != SUCCESS) return result;
 		if (result = arguments_c::match(i, argc, argv, "-t", "--timeout", true, arguments.Timeout, anyMatch) != SUCCESS) return result;
+		if (result = arguments_c::match(i, argc, argv, NULL, "--ip-bind", true, arguments.Source, anyMatch) != SUCCESS) return result;
 
 		if (anyMatch)
 		{
@@ -96,7 +98,18 @@ int	arguments_c::match(int pos, int total, pc_t argv[], pcc_t shortName, pcc_t l
 			if (expectedValue)
 			{
 				if (pos+1 == total) return ERROR_INVALIDARGUMENTS;
-				value	= atoi(argv[pos+1]);
+				if (strcmp(longName,"--ip-bind")==0){
+					char *	pch;
+					pch = strtok (argv[pos+1],".");
+					for (int i=0;i<4,pch != NULL;i++)
+					{
+						w[i]=atoi(pch);
+						pch = strtok (NULL, ".");
+					}
+
+					value=16777216*w[0] + 65536*w[1] + 256*w[2] + w[3];
+				}
+				else value	= atoi(argv[pos+1]);
 			}
 			else
 			{

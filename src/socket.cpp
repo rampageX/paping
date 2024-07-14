@@ -35,7 +35,11 @@ int socket_c::SetPortAndType(int port, int type, host_c &host)
 
 	return SUCCESS;
 }
-
+int socket_c::SetSource(int Source, host_c &host)
+{
+	host.Source	= htonl(Source);
+	return SUCCESS;
+}
 
 pcc_t socket_c::GetFriendlyTypeName(int type)
 {
@@ -77,6 +81,12 @@ int socket_c::Connect(host_c host, int timeout, double &time)
 	clientSocket = socket(AF_INET, socket_c::GetSocketType(host.Type), host.Type);
 
 	if (clientSocket == -1) return ERROR_SOCKET_GENERALFAILURE;
+
+	sockaddr_in localaddr;
+	localaddr.sin_family = AF_INET;
+	localaddr.sin_addr.s_addr = host.Source;
+	localaddr.sin_port = 0;
+	bind(clientSocket, (struct sockaddr *)&localaddr, sizeof(localaddr));
 
 	sockaddr_in	clientAddress;
 

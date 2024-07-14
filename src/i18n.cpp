@@ -16,7 +16,8 @@ pcc_t i18n_c::GetString(int id)
 														//"     --tcp\tuse TCP protocol (default)\n"
 														"     --nocolor\tDisable color output\n"
 														" -t, --timeout\ttimeout in milliseconds (default 1000)\n"
-														" -c, --count N\tset number of checks to N\n";
+														" -c, --count N\tset number of checks to N\n"
+														"     --ip-bind\tset source ip address\n";
 
 		case STRING_STATS:						return	"\n"
 														"Connection statistics:\n"
