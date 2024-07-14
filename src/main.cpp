@@ -43,7 +43,7 @@ int main(int argc, pc_t argv[])
 	}
 
 	useColor = arguments.UseColor;
-
+	socket_c::SetSource(arguments.Source, host);
 	result = socket_c::Resolve(arguments.Destination, host);
 
 	if (result == SUCCESS)
