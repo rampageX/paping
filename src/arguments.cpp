@@ -100,6 +100,7 @@ int	arguments_c::match(int pos, int total, pc_t argv[], pcc_t shortName, pcc_t l
 				if (pos+1 == total) return ERROR_INVALIDARGUMENTS;
 				if (strcmp(longName,"--ip-bind")==0){
 					char *	pch;
+					int w[4];
 					pch = strtok (argv[pos+1],".");
 					for (int i=0;i<4,pch != NULL;i++)
 					{
